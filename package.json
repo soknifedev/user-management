@@ -1,0 +1,39 @@
+{
+  "name": "user-management",
+  "version": "1.0.0",
+  "description": "Manages users and their data through a RESTFul API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "build": "babel src -d dist",
+    "dev": "nodemon --exec babel-node src/index.js",
+    "debug": "DEBUG=* nodemon --exec babel-node src/index.js",
+    "lint": "eslint . -c .eslintrc.js --ext .js --ignore-path .gitignore"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soknifedev/user-management.git"
+  },
+  "author": "soknifedev",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/soknifedev/user-management/issues"
+  },
+  "homepage": "https://github.com/soknifedev/user-management#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/node": "^7.10.5",
+    "@babel/plugin-proposal-optional-chaining": "^7.11.0",
+    "@babel/plugin-proposal-private-methods": "^7.10.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/preset-env": "^7.11.5",
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.7",
+    "mongoose-beautiful-unique-validation": "^7.1.1",
+    "require-dir": "^1.2.0"
+  }
+}

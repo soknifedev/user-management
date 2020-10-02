@@ -9,3 +9,4 @@ This repository will be used for the UP's university chair "Arquitectura Web"
   - __Ricardo Sanchez__ (sadly, we can't do friends easily, and even less in the coronavirus-era)
 
 * Stay tunned for new commits!
+
