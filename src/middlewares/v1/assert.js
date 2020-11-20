@@ -2,7 +2,7 @@ import config   from '../../../config';
 
 export default (err, req, res, next) => {
 
-  console.error(err);
+  // console.error(err);
     let obj = { };
 
     let errArray = [];

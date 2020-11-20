@@ -80,8 +80,7 @@ export const remove = async (req, res) => {
     else {
         const users = await User.find({});
         assert(users, 204, `No users found`);
-        console.log('users:', users)
-        result = await User.remove({}); // all
+        result = await User.remove({}); 
     }
     res.success(result);
 };

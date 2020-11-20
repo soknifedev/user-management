@@ -11,6 +11,18 @@ export const userSchema = new Schema({
   password: {
     required: true,
     type: String
+  },
+  bio: {
+    required: false,
+    type: String
+  },
+  name: {
+    required: false,
+    type: String
+  },
+  lastName: {
+    required: false,
+    type: String
   }
 });
 

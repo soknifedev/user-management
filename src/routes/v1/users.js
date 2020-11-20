@@ -17,8 +17,13 @@ router.options = options;
 
 router.delete('/', controller.remove);
 router.delete('/:userId', controller.remove);
+
 router.post('/', controller.create);
 router.post('/login', controller.login);
+
+router.put('/', controller.update);
+router.put('/:userId', controller.update);
+
 router.get('/', [auth, controller.list]);
 router.get('/:userId', [auth, controller.info]);
 
