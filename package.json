@@ -8,6 +8,7 @@
     "build": "babel src -d dist",
     "dev": "nodemon --exec babel-node src/index.js",
     "debug": "DEBUG=* nodemon --exec babel-node src/index.js",
+    "doc": "apidoc -i src -o docs/api/ && apidoc-markdown -p docs/api/ -o docs/API.md && rm -rf docs/api/",
     "lint": "eslint . -c .eslintrc.js --ext .js --ignore-path .gitignore"
   },
   "repository": {
@@ -31,9 +32,14 @@
     "nodemon": "^2.0.4"
   },
   "dependencies": {
+    "bcrypt": "^5.0.0",
     "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "http-assert": "^1.4.1",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.7",
     "mongoose-beautiful-unique-validation": "^7.1.1",
-    "require-dir": "^1.2.0"
+    "require-dir": "^1.2.0",
+    "validator": "^13.1.17"
   }
 }

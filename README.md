@@ -10,3 +10,18 @@ This repository will be used for the UP's university chair "Arquitectura Web"
 
 * Stay tunned for new commits!
 
+## Documentation
+- REST API documentation: [docs/api/README.md](docs/api/README.md)
+- Frontend documentation is not available yet.
+
+TO-DOs:
+- [x] Create base  
+  - [x] User endpoints
+  - [x] User model
+  - [x] DB wrapper class
+  - [ ] Documentation (In progress)
+- [ ] Improve endpoints
+    - [ ] Complexity: Add more complex queries.
+    - [ ] Security: permissions and/or roles.
+    - [ ] ... much more
+- [ ] Include front-end 

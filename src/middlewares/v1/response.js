@@ -1,4 +1,4 @@
-import config from '../../config';
+import config from '../../../config';
 
 const error = (req, res, error, statusCode) => {
   if(!/development|dev/iu.test(config.mode)) {
@@ -8,22 +8,21 @@ const error = (req, res, error, statusCode) => {
   }
   let e = new Error(error);
   e.code = statusCode || 400;
-  console.log('ERROR MIDDLEWARE: ', e)
+  console.error('[Error]:', e?.message)
   throw e;
 };
 
 const success = (req, res, result, statusCode) => {
 
-  let obj = { success: true };
+  let obj = { };
 
   if (result?.message) {
     obj.message = result.message;
     delete result.message;
-    if(Object.keys(result).length !== 0) {
-      obj.data = result;
-    }
   }
-
+  if(Object.keys(result).length !== 0) {
+    obj.data = result;
+  }
   res.status(statusCode || 200).send(obj);
 };
 

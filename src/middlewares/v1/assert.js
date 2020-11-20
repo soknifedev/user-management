@@ -1,9 +1,9 @@
-import config   from '../../config';
+import config   from '../../../config';
 
-  export default (err, req, res, next) => {
-    console.log(err)
+export default (err, req, res, next) => {
 
-    let obj = { success: false };
+  console.error(err);
+    let obj = { };
 
     let errArray = [];
     let mongoErrors = err?.errors;
@@ -26,7 +26,7 @@ import config   from '../../config';
           }
         }
         if(errArray.length > 0) {
-          error = errArray.join('; ');
+          err.message = errArray.join('; ');
         }
       }
   
@@ -47,6 +47,6 @@ import config   from '../../config';
     if(config.mode == 'dev') {
         obj.stackTrace = err.stack;
     }
-    let statusCode = err?.statusCode || 500;
+    let statusCode = err?.statusCode || 400;
     res.status(statusCode).send(obj)
   };

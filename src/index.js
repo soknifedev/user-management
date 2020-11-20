@@ -1,7 +1,7 @@
 import Database from './classes/Database';
 import app      from './app';
-import config   from '../config';
 import assert   from 'assert';
+import config   from '../config';
 
 if(config.mode == 'dev') {
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
