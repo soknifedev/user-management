@@ -8,7 +8,7 @@ if(config.mode == 'dev') {
 }
 
 const bootstrap = async () => {
-  // await Database.connect();
+  await Database.connect();
   assert(config?.api?.port, "Please specify a port to listen on for the RESTFul API in the config.json file");
   app.listen(config?.api?.port);
 };

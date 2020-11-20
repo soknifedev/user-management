@@ -4,9 +4,9 @@ import Session from '../../models/Session';
 import User from '../../models/User';
 import assert from 'http-assert';
 
-export default (middleware) => async (req, res, next) => {
+export default async (req, res, next) => {
 
-  const accessToken = (req.header.authorization || req.query.access_token || req.body.access_token)?.replace('Bearer ', '');
+  const accessToken = (req.headers.authorization || req.query.access_token || req.body.access_token)?.replace('Bearer ', '');
   assert(accessToken, 403, 'An active access token is required to access this resource.');
 
   const token = Token.verify(accessToken);
@@ -17,9 +17,12 @@ export default (middleware) => async (req, res, next) => {
 
   const session = await Session.findById(token.jwtid);
 
-  req.locals.state.user    = user;
-  req.locals.state.session = session;
+  if(!req.state) {
+    req.state = {}; 
+  }
+  req.state.user    = user;
+  req.state.session = session;
 
-  return next();
+  return await next();
 
 };

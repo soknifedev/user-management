@@ -1,5 +1,5 @@
 {
-    "mode": "dev",
+    "mode": "prod",
     "api": {
         "port": 3000
     },

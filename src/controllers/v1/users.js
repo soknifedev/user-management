@@ -12,7 +12,7 @@ export const create = async (req, res) => {
     });
     await user.save();
   
-    req.success({ 
+    res.success({ 
       userId: user._id
     });
 };
@@ -27,7 +27,7 @@ export const login = async (req, res) => {
       userId: user._id
     });
   
-    req.success({
+    res.success({
       accessToken: session.accessToken
     });
 };

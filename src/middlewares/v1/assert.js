@@ -36,13 +36,13 @@ export default (err, req, res, next) => {
       if(typeof err === 'string') {
         err = { message: err };
       }
-      obj.err = { code: err.code, message: err.message };
+      obj.error = { code: err.code, message: err.message };
     }
   
     // errorCode must be a number.
-    if(obj.err && isNaN(obj.err.code) ) {
-      obj.err.type = obj.err.code;
-      delete obj.err.code;
+    if(obj.error && isNaN(obj.error.code) ) {
+      obj.error.type = obj.error.code;
+      delete obj.error.code;
     }
     if(config.mode == 'dev') {
         obj.stackTrace = err.stack;

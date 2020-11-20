@@ -7,10 +7,6 @@ import {
 } from '../../config';
 
 const sessionSchema = new Schema({
-  appId: {
-    required: true,
-    type: String
-  },
   issuer: {
     maxlength: 8,
     required: true,
@@ -31,7 +27,6 @@ sessionSchema.statics.createFromBody = async function(body) {
   const item = new this(body);
   const tokenPair = Token.createTokenPair({
     sub: item.userId,
-    aud: item.appId,
     jwtid: item._id
   });
   
