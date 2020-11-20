@@ -56,18 +56,15 @@ export const update = async (req, res) => {
 
     let result;
     if(userId) {
-        const user = await User.find({
-            _id: userId
-        });
+        const user = await User.findById(userId);
         assert(user, 204, `No user '${userId}' found`);
         Object.assign(user, req.body);
         result = await user.save();
     }
     else {
-        const users = await User.find();
+        const users = await User.find({});
         assert(users, 204, `No users found`);
-        Object.assign(users, req.body);
-        result = await users.save();
+        result = await User.updateMany({}, req.body);
     }
     res.success(result);
 };
@@ -76,16 +73,15 @@ export const remove = async (req, res) => {
     const { userId } = req.params;
     let result;
     if(userId) {
-        const user = await User.find({
-            _id: userId
-        });
+        const user = await User.findById(userId);
         assert(user, 204, `No user '${userId}' found`);
         result = await user.remove();
     }
     else {
-        const users = await User.find();
+        const users = await User.find({});
         assert(users, 204, `No users found`);
-        result = await users.remove();
+        console.log('users:', users)
+        result = await User.remove({}); // all
     }
     res.success(result);
 };
